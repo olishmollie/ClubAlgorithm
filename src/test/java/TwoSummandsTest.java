@@ -6,27 +6,34 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class TwoSummandsTest {
-    public final int tests[][] = {
-        null,
-        {},
-        { 10, 3, 5, 2, 9, 22, 1 },
-        { 5, 2, 7, -2, -4, 8, 6 },
-        { 10, 20, 30, 40, 50, 50 }
-    };
-    public final int sums[] = { 0, 0, 4, 5, 100 };
-    public final ArrayList<HashSet<Integer>> solutions = makeSolutions();
+    public final HashSet<Integer> emptySet = new HashSet<>();
 
-    @Test public void testSolution() {
+    @Test public void nullCase() {
+        assertEquals("Solution should handle the null case", emptySet, TwoSummands.solution(null, 0));
+    }
+
+    @Test public void emptyArray() {
+        assertEquals("Solution should handle an empty array", emptySet, TwoSummands.solution(null, 0));
+    }
+
+    @Test public void testCases() {
+        int tests[][] = {
+            { 10, 3, 5, 2, 9, 22, 1 },
+            { 5, 2, 7, -2, -4, 8, 6 },
+            { 10, 20, 30, 40, 50, 50 }
+        };
+        int sums[] = { 4, 5, 100 };
+        ArrayList<HashSet<Integer>> solutions = makeSolutions();
+
         for (int i = 0; i < tests.length; i++) {
-            String msg = String.format("TwoSummands.solution should return %s", solutions.get(i).toString());
-            assertEquals(msg, solutions.get(i), TwoSummands.solution(tests[i], sums[i]));
+            HashSet<Integer> solution = TwoSummands.solution(tests[i], sums[i]);
+            String msg = String.format("Solution should return %s, got %s", solutions.get(i), solution);
+            assertEquals(msg, solutions.get(i), solution);
         }
     }
 
     private ArrayList<HashSet<Integer>> makeSolutions() {
         int solutions[][] = {
-            {},
-            {},
             { 3, 1 },
             { -2, 7 },
             { 50, 50 }
