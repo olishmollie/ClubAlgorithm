@@ -5,12 +5,12 @@ import org.junit.Test;
 public class BinarySearchTest {
 
     @Test public void nullCase() {
-        assertEquals("Solution should handle the null case", -1, BinarySearch.solution(null, 0));
+        assertEquals("solution should handle the null case.", -1, BinarySearch.solution(null, 0));
     }
 
     @Test public void emptyArray() {
         int a[] = new int[]{};
-        assertEquals("Solution should handle an empty array", -1, BinarySearch.solution(a, 0));
+        assertEquals("solution should handle an empty array.", -1, BinarySearch.solution(a, 0));
     }
 
     @Test public void shortArrays() {
@@ -24,7 +24,7 @@ public class BinarySearchTest {
         int[] solutions = new int[]{0, 0, -1, 6};
         for (int i = 0; i < tests.length; i++) {
             int solution = BinarySearch.solution(tests[i], targets[i]);
-            String msg = String.format("Solution should return %d, got %d", solutions[i], solution);
+            String msg = String.format("solution should return %d, got %d.", solutions[i], solution);
             assertEquals(msg, solutions[i], solution);
         }
     }
@@ -36,7 +36,7 @@ public class BinarySearchTest {
         }
         int target = Integer.MAX_VALUE/100 - 1;
         int solution = BinarySearch.solution(test, target);
-        String msg = String.format("Solution should return %d, got %d", target, solution);
+        String msg = String.format("solution should return %d, got %d.", target, solution);
         assertEquals(msg, target, solution);
     }
 }

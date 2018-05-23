@@ -5,17 +5,17 @@ import org.junit.Test;
 public class FindSingleIntTest {
 
     @Test public void nullCase() {
-        assertEquals("Solution should handle the null case", -1, FindSingleInt.solution(null));
+        assertEquals("solution should handle the null case.", -1, FindSingleInt.solution(null));
     }
 
     @Test public void emptyArray() {
         int[] a = new int[]{};
-        assertEquals("Solution should handle an empty array", -1, FindSingleInt.solution(a));
+        assertEquals("solution should handle an empty array.", -1, FindSingleInt.solution(a));
     }
 
     @Test public void singleElement() {
         int[] a = new int[]{0};
-        assertEquals("Solution should handle an array of length 1", 0, FindSingleInt.solution(a));
+        assertEquals("solution should handle an array of length 1.", 0, FindSingleInt.solution(a));
     }
 
     @Test public void shortArrays() {
@@ -27,7 +27,7 @@ public class FindSingleIntTest {
         int solutions[] = new int[]{ 2, 5, 4 };
         for (int i = 0; i < tests.length; i++) {
             int solution = FindSingleInt.solution(tests[i]);
-            String msg = String.format("Solution should return %d, got %d", solutions[i], solution);
+            String msg = String.format("solution should return %d, got %d.", solutions[i], solution);
             assertEquals(msg, solutions[i], solution);
         }
     }

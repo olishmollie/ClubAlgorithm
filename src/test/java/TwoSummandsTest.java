@@ -9,11 +9,11 @@ public class TwoSummandsTest {
     public final HashSet<Integer> emptySet = new HashSet<>();
 
     @Test public void nullCase() {
-        assertEquals("Solution should handle the null case", emptySet, TwoSummands.solution(null, 0));
+        assertEquals("solution should handle the null case.", emptySet, TwoSummands.solution(null, 0));
     }
 
     @Test public void emptyArray() {
-        assertEquals("Solution should handle an empty array", emptySet, TwoSummands.solution(null, 0));
+        assertEquals("solution should handle an empty array.", emptySet, TwoSummands.solution(null, 0));
     }
 
     @Test public void testCases() {
@@ -27,7 +27,7 @@ public class TwoSummandsTest {
 
         for (int i = 0; i < tests.length; i++) {
             HashSet<Integer> solution = TwoSummands.solution(tests[i], sums[i]);
-            String msg = String.format("Solution should return %s, got %s", solutions.get(i), solution);
+            String msg = String.format("solution should return %s, got %s.", solutions.get(i), solution);
             assertEquals(msg, solutions.get(i), solution);
         }
     }
