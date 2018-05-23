@@ -30,7 +30,7 @@ repositories {
 }
 
 test {
-	//we want display the following test events
+    // Log events to stdout
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
     }
