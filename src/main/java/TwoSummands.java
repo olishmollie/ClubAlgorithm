@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.HashMap;
 
 // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -10,20 +9,18 @@ import java.util.HashMap;
 // return [0, 1].
 
 public class TwoSummands {
-    public static HashSet<Integer> solution(int a[], int sum) {
-        HashSet<Integer> result = new HashSet<>();
-        if (a == null) { return result; }
-        HashMap<Integer, Integer>m = new HashMap<Integer, Integer>();
+    public static int[] solution(int a[], int sum) {
+        if (a == null) return new int[]{};
+        HashMap<Integer, Integer> m = new HashMap<Integer, Integer>();
         for (int i = 0; i < a.length; i++) {
-            int want = sum - a[i]; 
-            if (m.get(want) != null) {
-                result.add(a[i]);
-                result.add(want);
-                return result;
+            int diff = sum - a[i]; 
+            Integer j;
+            if ((j = m.get(diff)) != null) {
+                return new int[]{ j, i };
             } else {
                 m.put(a[i], i);
             }
         }
-        return result;
+        return new int[]{};
     }
 }
