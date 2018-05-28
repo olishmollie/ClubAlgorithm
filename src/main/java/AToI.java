@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.text.StringCharacterIterator;
 
 // Implement atoi which converts a string to an integer.
 // The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.
@@ -39,43 +40,43 @@ import java.math.BigInteger;
 public class AToI {
     public static int solution(String s) {
         int ans = 0;
-        if (s != null) {
+        if (s != null && s.length() > 0) {
+
             BigInteger b = BigInteger.ZERO;
-            int n = s.length();
-            boolean inDigit = false, neg = false;
-            for (int i = 0; i < n; i++) {
-                char c = s.charAt(i);
-                if (!inDigit) {
-                    if (Character.isWhitespace(c)) {
-                        continue;
-                    } else if (Character.isDigit(c)) {
-                        inDigit = true;
-                        b = b.multiply(BigInteger.TEN).add(BigInteger.valueOf(c - '0'));
-                        continue;
-                    } else {
-                        switch (c) {
-                            case '+':
-                            case '-':
-                                inDigit = true;
-                                neg = c == '-';
-                                break;
-                            default:
-                                return 0;
+
+            StringCharacterIterator i = new StringCharacterIterator(s);
+            while (Character.isWhitespace(i.current())) {
+                i.next();
+            }
+
+            int m = 1;
+            if (!Character.isDigit(i.current())) {
+                System.out.println(i.current());
+                switch (i.current()) {
+                    case '+':
+                    case '-':
+                        if (i.current() == '-') {
+                            m = -1;
                         }
-                    }
-                } else {
-                    if (!Character.isDigit(c)) {
+                        i.next();
                         break;
-                    }
-                    b = b.multiply(BigInteger.TEN).add(BigInteger.valueOf(c - '0'));
-                    System.out.println(b);
+                    default:
+                        return 0;
                 }
             }
-            if (b.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-                return neg ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+
+            while (Character.isDigit(i.current())) {
+                b = b.multiply(BigInteger.TEN).add(BigInteger.valueOf(i.current()-'0'));
+                i.next();
             }
-            ans = neg ? b.intValue()*-1 : b.intValue();
+
+            if (b.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                return m > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+
+            ans = m * b.intValue();
         }
+
         return ans;
     }
 }
