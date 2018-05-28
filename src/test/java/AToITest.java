@@ -44,6 +44,10 @@ public class AToITest {
         assertEquals(Integer.MAX_VALUE, AToI.solution("9903473874834"));
     }
 
+    @Test public void superOverflow() {
+        assertEquals(Integer.MAX_VALUE, AToI.solution("9223372036854775808"));
+    }
+
     @Test public void negativeOverflow() {
         assertEquals(Integer.MIN_VALUE, AToI.solution("-9903473874834"));
     }
