@@ -2,17 +2,17 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import objects.TwoSummandsSolutionArray;
+import objects.TestArray;
 
 public class TwoSummandsTest {
 
 
     @Test public void nullCase() {
-        assertEquals("solution should handle the null case.", new TwoSummandsSolutionArray(new int[]{}), TwoSummands.solution(null, 0));
+        assertEquals("solution should handle the null case.", new TestArray(new int[]{}), TwoSummands.solution(null, 0));
     }
 
     @Test public void emptyArray() {
-        assertEquals("solution should handle an empty array.", new TwoSummandsSolutionArray(new int[]{}), TwoSummands.solution(null, 0));
+        assertEquals("solution should handle an empty array.", new TestArray(new int[]{}), TwoSummands.solution(null, 0));
     }
 
     @Test public void testCases() {
@@ -22,10 +22,10 @@ public class TwoSummandsTest {
             { 10, 20, 30, 40, 50, 50 }
         };
         int sums[] = { 4, 5, 100 };
-        TwoSummandsSolutionArray[] solutions = {
-            new TwoSummandsSolutionArray(new int[]{ 1, 6 }),
-            new TwoSummandsSolutionArray(new int[]{ 2, 3 }),
-            new TwoSummandsSolutionArray(new int[]{ 4, 5 })
+        TestArray[] solutions = {
+            new TestArray(new int[]{ 1, 6 }),
+            new TestArray(new int[]{ 2, 3 }),
+            new TestArray(new int[]{ 4, 5 })
         };
 
         for (int i = 0; i < tests.length; i++) {

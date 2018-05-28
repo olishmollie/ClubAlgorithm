@@ -1,9 +1,9 @@
 package objects;
 
-public class TwoSummandsSolutionArray {
+public class TestArray {
     private int[] arr;
     public int length;
-    public TwoSummandsSolutionArray(int[] arr) {
+    public TestArray(int[] arr) {
         this.arr = arr;
         this.length = arr.length;
     }
