@@ -5,7 +5,7 @@ public class BinarySearch {
         if (a == null || a.length == 0) return -1;
         int low = 0, high = a.length-1;
         while (low <= high) {
-            int mid = low + (high-low)/2;
+            int mid = calculateMid(low, high);
             if (t == a[mid]) {
                 return mid;
             } else if (t < a[mid]) {
@@ -15,5 +15,9 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    public static int calculateMid(int low, int high) {
+        return low + (high-low)/2;
     }
 }

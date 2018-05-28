@@ -30,15 +30,8 @@ public class BinarySearchTest {
         }
     }
 
-    @Ignore("Ignore this test until I can figure out how to increase JVM heap size")
-    @Test public void longArrays() {
-        int[] test = new int[Integer.MAX_VALUE-2];
-        for (int i = 0; i < test.length; i++) {
-            test[i] = i;
-        }
-        int target = Integer.MAX_VALUE - 3;
-        int solution = BinarySearch.solution(test, target);
-        String msg = String.format("solution should return %d, got %d.", target, solution);
-        assertEquals(msg, target, solution);
+    @Test public void overflow() {
+        int low = Integer.MAX_VALUE/2, high = Integer.MAX_VALUE;
+        assertEquals(1610612735, BinarySearch.calculateMid(low, high));
     }
 }
